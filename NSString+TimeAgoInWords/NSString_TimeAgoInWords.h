@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString_TimeAgoInWords : NSObject
+@interface NSString (NSStringExtensions)
+
+-(NSString *) timeAgoInWords;
 
 @end

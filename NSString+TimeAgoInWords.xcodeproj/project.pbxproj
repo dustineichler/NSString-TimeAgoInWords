@@ -30,15 +30,15 @@
 /* Begin PBXFileReference section */
 		9FD994AD145095CD006491B6 /* libNSString+TimeAgoInWords.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libNSString+TimeAgoInWords.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD994B0145095CE006491B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		9FD994B4145095CE006491B6 /* NSString+TimeAgoInWords-Prefix.pch */ = {isa = PBXFileReference; path = "NSString+TimeAgoInWords-Prefix.pch"; sourceTree = "<group>"; };
-		9FD994B5145095CE006491B6 /* NSString_TimeAgoInWords.h */ = {isa = PBXFileReference; path = NSString_TimeAgoInWords.h; sourceTree = "<group>"; };
+		9FD994B4145095CE006491B6 /* NSString+TimeAgoInWords-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+TimeAgoInWords-Prefix.pch"; sourceTree = "<group>"; };
+		9FD994B5145095CE006491B6 /* NSString_TimeAgoInWords.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSString_TimeAgoInWords.h; sourceTree = "<group>"; };
 		9FD994B6145095CE006491B6 /* NSString_TimeAgoInWords.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSString_TimeAgoInWords.m; sourceTree = "<group>"; };
 		9FD994BD145095CE006491B6 /* NSString+TimeAgoInWordsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NSString+TimeAgoInWordsTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD994BE145095CE006491B6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		9FD994C0145095CE006491B6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		9FD994C8145095CE006491B6 /* NSString+TimeAgoInWordsTests-Info.plist */ = {isa = PBXFileReference; path = "NSString+TimeAgoInWordsTests-Info.plist"; sourceTree = "<group>"; };
+		9FD994C8145095CE006491B6 /* NSString+TimeAgoInWordsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NSString+TimeAgoInWordsTests-Info.plist"; sourceTree = "<group>"; };
 		9FD994CA145095CE006491B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9FD994CC145095CE006491B6 /* NSString_TimeAgoInWordsTests.h */ = {isa = PBXFileReference; path = NSString_TimeAgoInWordsTests.h; sourceTree = "<group>"; };
+		9FD994CC145095CE006491B6 /* NSString_TimeAgoInWordsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSString_TimeAgoInWordsTests.h; sourceTree = "<group>"; };
 		9FD994CD145095CE006491B6 /* NSString_TimeAgoInWordsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSString_TimeAgoInWordsTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -292,6 +292,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -308,6 +309,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -319,7 +321,7 @@
 				DSTROOT = /tmp/NSString_TimeAgoInWords.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NSString+TimeAgoInWords/NSString+TimeAgoInWords-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -331,7 +333,7 @@
 				DSTROOT = /tmp/NSString_TimeAgoInWords.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NSString+TimeAgoInWords/NSString+TimeAgoInWords-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -347,6 +349,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NSString+TimeAgoInWords/NSString+TimeAgoInWords-Prefix.pch";
 				INFOPLIST_FILE = "NSString+TimeAgoInWordsTests/NSString+TimeAgoInWordsTests-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -362,6 +365,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NSString+TimeAgoInWords/NSString+TimeAgoInWords-Prefix.pch";
 				INFOPLIST_FILE = "NSString+TimeAgoInWordsTests/NSString+TimeAgoInWordsTests-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -386,6 +390,7 @@
 				9FD994D3145095CE006491B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9FD994D4145095CE006491B6 /* Build configuration list for PBXNativeTarget "NSString+TimeAgoInWordsTests" */ = {
 			isa = XCConfigurationList;
@@ -394,6 +399,7 @@
 				9FD994D6145095CE006491B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

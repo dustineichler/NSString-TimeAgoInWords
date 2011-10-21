@@ -7,7 +7,16 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "NSString_TimeAgoInWords.h"
 
 @interface NSString_TimeAgoInWordsTests : SenTestCase
+{
+    NSDateFormatter     *formatter;
+    NSDate              *current;
+    NSDateComponents    *components;
+    NSCalendar          *gregorian;
+    NSString            *currentDate;
+    NSDate              *newCurrentDate;
+}
 
 @end
