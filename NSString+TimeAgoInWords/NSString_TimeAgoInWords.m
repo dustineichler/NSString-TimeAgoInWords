@@ -16,7 +16,7 @@
     NSString *stamp;
     
     @try{
-        if ([self length] > 0)
+        if ([timestamp length] > 0)
         {
             stamp = [[NSString alloc] initWithString:timestamp];
         } else {
