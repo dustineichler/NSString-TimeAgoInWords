@@ -8,22 +8,36 @@
 
 #import "NSString_TimeAgoInWords.h"
 
-
 @implementation NSString (NSStringExtensions)
 
--(NSString *) timeAgoInWords
+-(NSString *) timeAgoInWords:(NSString *)timestamp withTemplate:(NSString *)temp;
 {
-    NSString *timestamp = [[NSString alloc] initWithString:self];
+    NSException *exception;
+    NSString *stamp;
+    
+    @try{
+        if ([self length] > 0)
+        {
+            stamp = [[NSString alloc] initWithString:timestamp];
+        } else {
+            @throw exception;
+        }
+    }
+    @catch (NSException *exception) {
+        [NSException raise:@"Argument Error" format:@"Exception %@ -- Reason %@",
+         [exception name], 
+         [exception reason]];
+    }
     
     // Get the system calendar
     NSCalendar *sysCalendar = [NSCalendar currentCalendar];
     
     // Create the NSDates        
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss-07:00"];
+    [dateFormatter setDateFormat:temp];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"PST"]];
     
-    NSDate *fromDate = [dateFormatter dateFromString:timestamp];
+    NSDate *fromDate = [dateFormatter dateFromString:stamp];
     
     // Time Now
     NSDate *toDate = [[NSDate alloc] init];

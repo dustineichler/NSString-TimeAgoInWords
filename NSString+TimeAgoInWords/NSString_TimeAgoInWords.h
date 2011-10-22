@@ -10,6 +10,6 @@
 
 @interface NSString (NSStringExtensions)
 
--(NSString *) timeAgoInWords;
+-(NSString *) timeAgoInWords:(NSString *)timestamp withTemplate:(NSString *)temp;
 
 @end

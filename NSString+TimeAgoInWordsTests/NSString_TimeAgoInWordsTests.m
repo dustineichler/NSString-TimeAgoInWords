@@ -49,7 +49,8 @@ static const int thirtyToAdd    = -30;
 {    
     NSDate   *todaysDate = [gregorian dateByAddingComponents:components toDate:newCurrentDate options:0];
     NSString *todaysStringDate = [formatter stringFromDate:todaysDate];
-    NSString *_now = [todaysStringDate timeAgoInWords];
+    NSString *_now = [[NSString alloc] timeAgoInWords:todaysStringDate 
+                                         withTemplate:@"yyyy-MM-dd'T'HH:mm:ss-07:00"];
     STAssertEqualObjects(_now, @"now", @"Failed: Timestamp does not match");
 }
 
@@ -58,7 +59,8 @@ static const int thirtyToAdd    = -30;
     [components setSecond:thirtyToAdd];
     NSDate   *thirtySecondstoAddDate = [gregorian dateByAddingComponents:components toDate:current options:0];
     NSString *thirtySecondsAgo = [formatter stringFromDate:thirtySecondstoAddDate];
-    NSString *_thirtySecondsAgo = [thirtySecondsAgo timeAgoInWords];
+    NSString *_thirtySecondsAgo = [[NSString alloc] timeAgoInWords:thirtySecondsAgo 
+                                                      withTemplate:@"yyyy-MM-dd'T'HH:mm:ss-07:00"];
     STAssertEqualObjects(_thirtySecondsAgo, @"now", @"Failed: Timestamp does not match");
 }
 
@@ -67,7 +69,8 @@ static const int thirtyToAdd    = -30;
     [components setMinute:oneToAdd];
     NSDate   *oneMinutetoAddDate = [gregorian dateByAddingComponents:components toDate:current options:0];
     NSString *oneMinuteAgo = [formatter stringFromDate:oneMinutetoAddDate];
-    NSString *_oneMinuteAgo = [oneMinuteAgo timeAgoInWords];
+    NSString *_oneMinuteAgo = [[NSString alloc] timeAgoInWords:oneMinuteAgo 
+                                                  withTemplate:@"yyyy-MM-dd'T'HH:mm:ss-07:00"];
     STAssertEqualObjects(_oneMinuteAgo, @"1 minute ago", @"Failed: Timestamp does not match");
 }
 
@@ -76,7 +79,8 @@ static const int thirtyToAdd    = -30;
     [components setMinute:twoToAdd];
     NSDate   *twoMinutestoAddDate = [gregorian dateByAddingComponents:components toDate:current options:0];
     NSString *twoMinutesAgo = [formatter stringFromDate:twoMinutestoAddDate];
-    NSString *_twoMinutesAgo = [twoMinutesAgo timeAgoInWords];
+    NSString *_twoMinutesAgo = [[NSString alloc] timeAgoInWords:twoMinutesAgo 
+                                                   withTemplate:@"yyyy-MM-dd'T'HH:mm:ss-07:00"];
     STAssertEqualObjects(_twoMinutesAgo, @"2 minutes ago", @"Failed: Timestamp does not match");
 }
 
@@ -85,7 +89,8 @@ static const int thirtyToAdd    = -30;
     [components setHour:oneToAdd];
     NSDate   *oneHourtoAddDate = [gregorian dateByAddingComponents:components toDate:current options:0];
     NSString *oneHourAgo = [formatter stringFromDate:oneHourtoAddDate];
-    NSString *_oneHourAgo = [oneHourAgo timeAgoInWords];
+    NSString *_oneHourAgo = [[NSString alloc] timeAgoInWords:oneHourAgo 
+                                                withTemplate:@"yyyy-MM-dd'T'HH:mm:ss-07:00"];
     STAssertEqualObjects(_oneHourAgo, @"1 hour ago", @"Failed: Timestamp does not match");
 }
 
@@ -94,7 +99,8 @@ static const int thirtyToAdd    = -30;
     [components setHour:twoToAdd];
     NSDate   *twoHourstoAddDate = [gregorian dateByAddingComponents:components toDate:current options:0];
     NSString *twoHoursAgo = [formatter stringFromDate:twoHourstoAddDate];
-    NSString *_twoHoursAgo = [twoHoursAgo timeAgoInWords];
+    NSString *_twoHoursAgo = [[NSString alloc] timeAgoInWords:twoHoursAgo 
+                                                 withTemplate:@"yyyy-MM-dd'T'HH:mm:ss-07:00"];
     STAssertEqualObjects(_twoHoursAgo, @"2 hours ago", @"Failed: Timestamp does not match");
 }
 
@@ -103,7 +109,8 @@ static const int thirtyToAdd    = -30;
     [components setDay:oneToAdd];
     NSDate   *oneDaytoAddDate = [gregorian dateByAddingComponents:components toDate:current options:0];
     NSString *oneDayAgo = [formatter stringFromDate:oneDaytoAddDate];
-    NSString *_oneDayAgo = [oneDayAgo timeAgoInWords];
+    NSString *_oneDayAgo = [[NSString alloc] timeAgoInWords:oneDayAgo 
+                                               withTemplate:@"yyyy-MM-dd'T'HH:mm:ss-07:00"];
     STAssertEqualObjects(_oneDayAgo, @"1 day ago", @"Failed: Timestamp does not match");
 }
 
@@ -112,7 +119,8 @@ static const int thirtyToAdd    = -30;
     [components setDay:twoToAdd];
     NSDate   *twoDaystoAddDate = [gregorian dateByAddingComponents:components toDate:current options:0];
     NSString *twoDaysAgo = [formatter stringFromDate:twoDaystoAddDate];
-    NSString *_twoDaysAgo = [twoDaysAgo timeAgoInWords];
+    NSString *_twoDaysAgo = [[NSString alloc] timeAgoInWords:twoDaysAgo 
+                                                withTemplate:@"yyyy-MM-dd'T'HH:mm:ss-07:00"];
     STAssertEqualObjects(_twoDaysAgo, @"2 days ago", @"Failed: Timestamp does not match");
 }
 
@@ -141,7 +149,8 @@ static const int thirtyToAdd    = -30;
     [components setMonth:oneToAdd];
     NSDate   *oneMonthtoAddDate = [gregorian dateByAddingComponents:components toDate:current options:0];
     NSString *oneMonthAgo = [formatter stringFromDate:oneMonthtoAddDate];
-    NSString *_oneMonthAgo = [oneMonthAgo timeAgoInWords];
+    NSString *_oneMonthAgo = [[NSString alloc] timeAgoInWords:oneMonthAgo 
+                                                 withTemplate:@"yyyy-MM-dd'T'HH:mm:ss-07:00"];
     STAssertEqualObjects(_oneMonthAgo, @"1 month ago", @"Failed: Timestamp does not match");  
 }
 
@@ -150,7 +159,8 @@ static const int thirtyToAdd    = -30;
     [components setMonth:twoToAdd];
     NSDate   *twoMonthstoAddDate = [gregorian dateByAddingComponents:components toDate:current options:0];
     NSString *twoMonthsAgo = [formatter stringFromDate:twoMonthstoAddDate];
-    NSString *_twoMonthsAgo = [twoMonthsAgo timeAgoInWords];
+    NSString *_twoMonthsAgo = [[NSString alloc] timeAgoInWords:twoMonthsAgo 
+                                                  withTemplate:@"yyyy-MM-dd'T'HH:mm:ss-07:00"];
     STAssertEqualObjects(_twoMonthsAgo, @"2 months ago", @"Failed: Timestamp does not match");
 }
 
