@@ -8,13 +8,13 @@ Static Library to convert timestamps into relative word entities.
 
 ## Adding NSString+TimeAgoInWords to your project
 
-1. TODO: DWE: Directions on Importing Static Libraries to Projects
+The easiest way to use NSString+TimeAgoInWords is to add all classes from the Xcode NSString+TimeAgoInWords group to your own project.
 
 ## Example
 
 To use NSString+TimeAgoInWords, simply add the following line to your source file.
 
-    #import <NSString_TimeAgoInWords/NSString_TimeAgoInWords>
+    #import "NSString_TimeAgoInWords.h"
     
 * [NSString_TimeAgoInWordsTests.m][] - Example of how to use this Library
 
