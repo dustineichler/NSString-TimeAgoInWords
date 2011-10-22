@@ -8,13 +8,12 @@
 
 #import "NSString_TimeAgoInWords.h"
 
+
 @implementation NSString (NSStringExtensions)
 
 -(NSString *) timeAgoInWords
 {
     NSString *timestamp = [[NSString alloc] initWithString:self];
-    // The time interval - Year 
-    NSTimeInterval theTimeInterval = 326.4;
     
     // Get the system calendar
     NSCalendar *sysCalendar = [NSCalendar currentCalendar];
@@ -27,44 +26,43 @@
     NSDate *fromDate = [dateFormatter dateFromString:timestamp];
     
     // Time Now
-    NSDate *currentDate = [[NSDate alloc] init];
-
-    // Time Interval
-    NSDate *toDate = [[NSDate alloc] initWithTimeInterval:theTimeInterval sinceDate:currentDate]; 
+    NSDate *toDate = [[NSDate alloc] init];
     
     // Get conversion to months, days, hours, minutes
     unsigned int unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit;
     NSDateComponents *conversionInfo = [sysCalendar components:unitFlags fromDate:fromDate  toDate:toDate  options:0];
     NSString *result;
-
-    while ([conversionInfo second] > 0)
-    {
-        NSLog(@"------------- TIMESTAMP: %@",
-              [NSString stringWithFormat:@"%d months, %d day, %d hour, %d minutes", 
-               [conversionInfo month],
-               [conversionInfo day],
-               [conversionInfo hour],
-               [conversionInfo minute]]);
-        
-        if ([conversionInfo month] > 1 && [conversionInfo month] < 12) {
-            result = [NSString stringWithFormat:@"%d months ago", [conversionInfo month]];
-            break;
-        } else if ([conversionInfo day] > 1 && [conversionInfo day] < 30 && [conversionInfo month] == 0 ){
-            result = [NSString stringWithFormat:@"%d days ago", [conversionInfo day]];
-            break;
-        } else if ([conversionInfo hour] > 1 && [conversionInfo hour] < 24 && [conversionInfo day] == 0) {
-            result = [NSString stringWithFormat:@"%d hours ago", [conversionInfo hour]];
-            break;
-        } else if ([conversionInfo minute] > 1 && [conversionInfo minute] < 60 && [conversionInfo hour] == 0) {
-            result = [NSString stringWithFormat:@"%d minutes ago", [conversionInfo minute]];
-            break;
-        } else {
-            result = [NSString stringWithFormat:@"now"];
-            break; //Probably don't need a break statement here.
-        }
-        break;
-    }
     
+#ifdef DEBUG
+    NSLog(@"%@", [NSString stringWithFormat:@"%d months, %d weeks, %d days, %d hours, %d minutes, %d seconds",
+                  [conversionInfo month],
+                  [conversionInfo week],
+                  [conversionInfo day],
+                  [conversionInfo hour],
+                  [conversionInfo minute],
+                  [conversionInfo second]]);
+#endif
+        
+    if ([conversionInfo month] > 0 && [conversionInfo month] < 12) {
+        return result = [NSString stringWithFormat:[conversionInfo month] == 1 ? 
+                         @"%d month ago" : @"%d months ago", [conversionInfo month]];
+        
+    } else if ([conversionInfo day] > 0 && [conversionInfo day] < 30 && [conversionInfo month] == 0 ){
+        return result = [NSString stringWithFormat: [conversionInfo day] == 1 ? 
+                         @"%d day ago" : @"%d days ago", [conversionInfo day]];
+        
+    } else if ([conversionInfo hour] > 0 && [conversionInfo hour] < 24 && [conversionInfo day] == 0) {
+        return result = [NSString stringWithFormat: [conversionInfo hour] == 1 ? 
+                         @"%d hour ago" : @"%d hours ago", [conversionInfo hour]];
+        
+    } else if ([conversionInfo minute] > 0 && [conversionInfo minute] < 60 && [conversionInfo hour] == 0) {
+        return result = [NSString stringWithFormat: [conversionInfo minute] == 1 ? 
+                         @"%d minute ago" : @"%d minutes ago", [conversionInfo minute]];
+        
+    } else {
+        return result = [NSString stringWithFormat:@"now"];
+        
+    }    
     return result;
 }
 
