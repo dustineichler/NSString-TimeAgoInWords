@@ -1,8 +1,8 @@
 # NSString+TimeAgoInWords
 
-Static Library to convert timestamps into relative word entities.
+Static Library utility to convert timestamps into relative word entities.
 
-## Classes
+## Methods
 
 * [NSString_TimeAgoInWords.m][] - adds TimeAgoInWords to NSString Class.
 
